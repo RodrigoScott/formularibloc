@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:formvalidation/src/blocs/provider.dart';
 import 'package:formvalidation/src/pages/home_page.dart';
 import 'package:formvalidation/src/pages/login_page.dart';
 
@@ -9,16 +10,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Form Validation',
-      initialRoute: 'login',
-      routes: {
-        'login'           : (BuildContext context) => loginPage(),
-        'homepage'        : (BuildContext context) => HomePage(),
-      },
 
-
+    return Provider(
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Form Validation',
+        initialRoute: 'login',
+        routes: {
+          'login'           : (BuildContext context) => loginPage(),
+          'home'        : (BuildContext context) => HomePage(),
+        },
+        theme: ThemeData(
+          primaryColor: Colors.deepPurple
+        ),
+      ),
     );
   }
 }
